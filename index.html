@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Surpresa!</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Rouge+Script&display=swap');
+    .title {
+        font-family: "Rouge Script", cursive;
+        font-size: 3rem;
+    }
+  </style>
+</head>
+<body class="bg-pink-50 font-sans text-gray-800">
+  
+  <!-- Tela inicial -->
+  <section class="h-screen flex flex-col items-center justify-center text-center bg-gradient-to-b from-pink-200 to-pink-50">
+    <h1 class="title text-4xl md:text-5xl font-bold text-pink-700 mb-6">
+      Oii Raissinha! Preparei algo especial pra você 💕
+    </h1>
+    <button onclick="nextSection('timeline')" 
+      class="px-6 py-3 bg-pink-600 text-white font-semibold rounded-full shadow-lg hover:bg-pink-700 transition">
+      Clique para começar
+    </button>
+  </section>
+
+  <!-- Linha do tempo / Galeria -->
+  <section id="timeline" class="hidden min-h-screen flex flex-col items-center justify-center bg-white p-6">
+    <h2 class="title text-3xl font-bold text-pink-600 mb-8">Nossos Momentos</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl">
+      <div class="bg-pink-100 rounded-2xl shadow-md p-4 text-center">
+        <img src="./assets/sorriso-perfeito.jpeg" class="rounded-xl mb-4" alt="momento 1">
+        <p class="text-pink-700 italic">Esse sorriso é o meu lugar favorito 😍</p>
+      </div>
+      <div class="bg-pink-100 rounded-2xl shadow-md p-4 text-center flex justify-center items-center flex-col"> 
+        <video class="w-full rounded-xl mb-4" autoplay muted>
+            <source src="./assets/indo-cinema.mp4" type="video/mp4">
+        </video>
+          <p class="text-pink-700 italic">Você me faz tão feliz ❤️</p>
+        </div>
+      <div class="bg-pink-100 rounded-2xl shadow-md p-4 text-center">
+        <img src="./assets/parque.jpeg" class="rounded-xl mb-4" alt="momento 2">
+        <p class="text-pink-700 italic">Contigo, cada instante é único 💫</p>
+      </div>
+    </div>
+    <button onclick="nextSection('mensagens')" 
+      class="mt-10 px-6 py-3 bg-pink-600 text-white font-semibold rounded-full shadow-lg hover:bg-pink-700 transition">
+      Leia minhas cartinhas pra você 💌
+    </button>
+  </section>
+
+  <!-- Mensagens -->
+  <section id="mensagens" class="hidden min-h-screen flex flex-col items-center justify-center bg-pink-50 px-6">
+    <h2 class="title text-3xl font-bold text-pink-600 mb-8">Cartinhas pra você 💌</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl">
+      <div class="bg-white p-6 rounded-2xl shadow-lg">
+        <p class="text-lg">Amo te ouvir e poder conversar contigo todos os dias! Minhas 24h nunca seriam tão legais sem você ✨</p>
+      </div>
+      <div class="bg-white p-6 rounded-2xl shadow-lg">
+        <p class="text-lg">Agradeço a Deus por te conhecer e poder compartilhar minha vida contigo 💕</p>
+      </div>
+      <div class="bg-white p-6 rounded-2xl shadow-lg">
+        <p class="text-lg">Um dos meus sonhos é construir muitas memórias contigo, por toda a vida 🌎</p>
+      </div>
+      <div class="bg-white p-6 rounded-2xl shadow-lg">
+        <p class="text-lg">Obrigado por ser quem é, por me ouvir e estar comigo sempre que preciso, eu sou seu fã 🌸</p>
+      </div>
+    </div>
+    <button onclick="nextSection('video')" 
+      class="mt-10 px-6 py-3 bg-pink-600 text-white font-semibold rounded-full shadow-lg hover:bg-pink-700 transition">
+      Próxima surpresa 🎁
+    </button>
+  </section>
+
+    <!-- Vídeo -->
+  <section id="video" class="hidden min-h-screen flex flex-col items-center justify-center bg-white px-6">
+    <h2 class="title text-3xl font-bold text-pink-600 mb-8">Um vídeo especial pra você 🎥💕</h2>
+        <div class="w-[20rem] max-w-3xl rounded-2xl overflow-hidden shadow-lg mb-6">
+      <video class="w-full" autoplay controls>
+        <source src="./assets/highlights.mp4" type="video/mp4">
+      </video>
+    </div>
+    <p class="text-lg text-center text-pink-700 italic max-w-2xl">
+      Fiz esse vídeo pensando em nós dois 💖 Cada cena representa um pedacinho da minha felicidade contigo.
+    </p>
+    <button onclick="nextSection('pedido')" 
+      class="mt-10 px-6 py-3 bg-pink-600 text-white font-semibold rounded-full shadow-lg hover:bg-pink-700 transition">
+      Agora sim, a surpresa final 💍
+    </button>
+  </section>
+
+    <!-- Pedido -->
+  <section id="pedido" class="hidden h-screen flex flex-col items-center justify-center text-center bg-gradient-to-b from-pink-100 to-pink-300">
+    <h2 class="title text-4xl font-bold text-pink-700 mb-6">
+      Agora vem a pergunta mais importante... 💍
+    </h2>
+    <p id="pergunta" class="text-2xl mb-8 opacity-0 transition-opacity duration-1000"><strong><i>Quer namorar comigo? </i></strong>🥰</p>
+    <div id="botoes" class="flex gap-6 opacity-0 transition-opacity duration-1000">
+      <button onclick="resposta()" 
+        class="px-8 py-4 bg-pink-500 text-white font-bold rounded-full shadow-lg hover:bg-pink-700 transition text-xl">
+        Sim ❤️
+      </button>
+      <button onclick="resposta()" 
+        class="px-8 py-4 bg-pink-500 text-white font-bold rounded-full shadow-lg hover:bg-pink-600 transition text-xl">
+        Claro que sim ❤️
+      </button>
+    </div>
+  </section>
+
+  <section id="resposta-final" class="hidden h-screen flex flex-col items-center justify-center text-center bg-pink-50 relative transition-all duration-1000">
+      <h1 class="text-5xl font-bold text-pink-700 mb-6 font-romantic animate-bounce">
+        Agora você é oficialmente <strong class="text-pink-900">MINHA BRANCA DE NEVE!</strong> 💕
+      </h1>
+      <p class="text-xl text-pink-600">Te amo demais, sou o homem mais feliz do mundo contigo! ✨</p>
+      <div class="mt-10 animate-pulse text-6xl">💖💖💖</div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    function nextSection(id) {
+      document.querySelectorAll("section").forEach(sec => sec.classList.add("hidden"));
+      document.getElementById(id).classList.remove("hidden");
+
+      // Se for a seção do pedido, ativa o temporizador
+      if (id === "pedido") {
+        setTimeout(() => {
+          document.getElementById("pergunta").classList.remove("opacity-0");
+          document.getElementById("botoes").classList.remove("opacity-0");
+        }, 3000); // 3 segundos
+      }
+    }
+
+function resposta() {
+      document.querySelectorAll("section").forEach(sec => sec.classList.add("hidden"));
+      document.getElementById("resposta-final").classList.remove("hidden");
+      
+      const duration = 2 * 1000; 
+      const end = Date.now() + duration;
+
+      (function frame() {
+        confetti({
+          particleCount: 6,
+          angle: 60,
+          spread: 55,
+          origin: { x: 0 }
+        });
+        confetti({
+          particleCount: 6,
+          angle: 120,
+          spread: 55,
+          origin: { x: 1 }
+        });
+
+        if (Date.now() < end) {
+          requestAnimationFrame(frame);
+        }
+      }());
+    }
+  </script>
+
+
+
+</body>
+</html>
